@@ -2,8 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const helmet = require("helmet");
+const compression = require("compression");
 const app = express();
+// Improving cross-site functionalities and efficiency of the server.
+app.use(helmet());
+app.use(compression());
 app.use(cors());
+
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
 
